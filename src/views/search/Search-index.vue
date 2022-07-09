@@ -1,6 +1,6 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="search-index">
+    <h1>This is a search-index page</h1>
   </div>
 </template>
 
