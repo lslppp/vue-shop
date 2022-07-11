@@ -1,0 +1,47 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3384659 */
+  src: url('../fonts/iconfont.woff2?t=1653722532805') format('woff2'),
+       url('../fonts/iconfont.woff?t=1653722532805') format('woff'),
+       url('../fonts/iconfont.ttf?t=1653722532805') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-shangjiantou:before {
+  content: "\eb6d";
+}
+
+.icon-xiajiantou:before {
+  content: "\e60a";
+}
+
+.icon-fanhui:before {
+  content: "\e601";
+}
+
+.icon-good:before {
+  content: "\e62a";
+}
+
+.icon-shijian:before {
+  content: "\e8b8";
+}
+
+.icon-ic_thishop_logo-copy:before {
+  content: "\e680";
+}
+
+.icon-fangdajing1:before {
+  content: "\e633";
+}
+
+.icon-kefu:before {
+  content: "\e605";
+}
+
