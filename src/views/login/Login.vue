@@ -24,8 +24,8 @@
 <script >
   import Tabbar from '@/components/common/Tabbar.vue'
   import  Header from './Header.vue'
-    //import {Toast} from 'mint-ui'
-    // import http from '@/common/api/request.js'
+  //import {Toast} from 'mint-ui'
+  // import http from '@/common/api/request.js'
 
     export default{
       data(){

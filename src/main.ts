@@ -8,8 +8,6 @@ app.use(router);
 import store from "./store";
 app.use(store);
 
-
-
 import './assets/css/common.css'
 import './assets/css/iconfont.css'
 // import LyTab from 'ly-tab'
@@ -23,6 +21,7 @@ app.use(VueAwesomeSwiper)
 
 
 import elementplus from 'element-plus'
+import 'element-plus/dist/index.css'
 //import 'element-plus/lib/style.css'
 app.use(elementplus);
 

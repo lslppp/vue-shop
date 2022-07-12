@@ -1,17 +1,71 @@
-
 <template>
   <main class="home">
-    这是首页
+       <div class="Headers">
+      <div class="headers-main">
+        <Header v-if = 'true'></Header>
+        <Lytab v-if = 'true'></Lytab>
+    
+      </div>  
+    </div>  
+    <section class="wrapper">
+      <div>
+<!--         <div 
+          v-for = '(item,index) in newData'
+          :key = 'index'
+        >
+          <Swiper 
+             v-if ='item.type=="swiperList"'
+             :swiperList ='item.data'
+          ></Swiper>
+          <Icons 
+             v-if ='item.type=="iconsList"'
+             :iconsList ='item.data'
+          ></Icons>
+          <dailyrecommend 
+             v-if ='item.type=="recommendList"'
+             :recommendList ='item.data'
+          ></dailyrecommend>
+          <Like 
+             v-if ='item.type=="likeList"'
+             :likeList ='item.data'
+             ></Like>
+          <Ad 
+             v-if ='item.type=="adList"'
+             :adList = 'item.data'
+             ></Ad>
+        </div> -->
+        
+      </div>
+    </section>
     <Tabbar/>
   </main>
 </template>
-<script >
+<script>
   import Tabbar from '@/components/common/Tabbar.vue'
+  import Header from '@/components/homeview/Header.vue' 
+  import Lytab from '@/components/homeview/Ly-tab.vue'
+  import dailyrecommend from '@/components/homeview/Dailyrecommend.vue'
+  import Swiper from '@/components/homeview/Swiper.vue'
+  import Icons from '@/components/homeview/Icons.vue'
+  import Like from '@/components/homeview/Like.vue'
+  import Ad from '@/components/homeview/Ad.vue'
+  import BScroll from 'better-scroll'
+
+  // import http from '@/common/api/request.js'
+  import BSC from '@better-scroll/core'
   export default {
     components:{
-      Tabbar
+      Tabbar,
+      Header,
+      Lytab,
+      dailyrecommend,
+      Swiper,
+      Icons,
+      Like,
+      Ad
     }
 };
+
 </script>
 
 <style>

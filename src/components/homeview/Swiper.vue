@@ -14,7 +14,7 @@
 
 <script>
   import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
-  import 'swiper/css/swiper.css';
+  // import 'swiper/css/swiper.css';
   export default {
     name: 'swipervue',
     title: 'Pagination',
