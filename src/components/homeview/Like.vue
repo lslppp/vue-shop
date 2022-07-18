@@ -10,9 +10,9 @@
        @click = 'goDetail(items.id)'
 
        >
-       <h2>
+      <!--  <h2>
          <img v-lazy="items.imgUrl" alt="">
-       </h2>
+       </h2> -->
        <h3>{{items.name}}</h3>
        <div>
          <span>¥</span>
@@ -93,26 +93,6 @@
 }
  
 </style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

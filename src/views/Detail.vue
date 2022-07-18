@@ -73,8 +73,8 @@
 </template>
 <script >
   import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
-  import 'swiper/css/swiper.css';
-  import http from '@/common/api/request.js'
+  // import 'swiper/css/swiper.css';
+  import http from '@/common/api/http.js'
   import Tabbar from '@/components/common/Tabbar.vue'
   import BScroll from 'better-scroll'
   export default{

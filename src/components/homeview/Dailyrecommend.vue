@@ -7,9 +7,9 @@
 			<li  class="liclass" 
 			v-for='(item,index) in recommendList'
 			:key = 'index'>
-				<h2>
+			<!-- 	<h2>
 					<img :src="item.imgUrl" alt = "">
-				</h2>
+				</h2> -->
 				<div class="priceparent">
 					<h3>{{item.name}}</h3>
 					<p>{{item.content}}</p>

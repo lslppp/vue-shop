@@ -13,6 +13,7 @@
 </template>
 <script>
   import Tabbar from '@/components/common/Tabbar.vue'
+  import http from '@/common/api/http.js'
   export default{
     name:"My",
     components:{

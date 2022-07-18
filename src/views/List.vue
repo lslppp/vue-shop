@@ -59,7 +59,7 @@
 <script>
   
   import Tabbar from '@/components/common/Tabbar.vue'
-   import http from '@/common/api/request.js'
+   import http from '@/common/api/http.js'
    import BScroll from 'better-scroll'
    // import axios from 'axios'
    import BSC from '@better-scroll/core'

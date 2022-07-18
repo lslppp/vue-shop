@@ -1,4 +1,5 @@
-import { createApp } from "vue";
+import { createApp} from "vue";
+// import from "vue";
 import App from "./App.vue";
 const app = createApp(App);
 
@@ -10,6 +11,7 @@ app.use(store);
 
 import './assets/css/common.css'
 import './assets/css/iconfont.css'
+
 // import LyTab from 'ly-tab'
 // app.use(LyTab);
 
@@ -28,6 +30,20 @@ app.use(elementplus);
 import Vant from 'vant';
 import 'vant/lib/index.css';
 app.use(Vant);
+
+
+// import axios from 'axios'
+// import requestq from '@/common/api/http.js'; //把封装好的axios引入
+// import VueAxios from 'vue-axios';
+// app.use(VueAxios,requestq);
+
+// import {get,post} from '@/common/api/http';
+// Vue.prototype.$post = post;
+// Vue.prototype.$get= get;
+
+
+
+
 
 
 app.config.productionTip = false;

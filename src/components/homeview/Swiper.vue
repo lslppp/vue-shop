@@ -1,50 +1,46 @@
 <template>
-  <swiper class="swiper" :options="swiperOption">
-    <swiper-slide 
-    v-for = '(item,index) in swiperList'
+  <swiper
+    :pagination="{
+      type: 'progressbar',
+    }"
+    :navigation="true"
+    :modules="modules"
+    class="mySwiper">
+    <swiper-slide v-for = '(item,index) in swiperList'
     :key = 'index'>
       <img :src="item.imgUrl" alt="">
     </swiper-slide>
-   
-    <div class="swiper-pagination" slot="pagination"></div>
-    <div class="swiper-button-prev" slot="button-prev"></div>
-    <div class="swiper-button-next" slot="button-next"></div>
   </swiper>
 </template>
-
 <script>
-  import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
-  // import 'swiper/css/swiper.css';
-  export default {
-    name: 'swipervue',
-    title: 'Pagination',
-    props:{
-      swiperList:Array
-    },
-    components: {
-      Swiper,
-      SwiperSlide
-    },
-    data() {
-      return {
-        swiperOption: {
-           spaceBetween: 20,
-           autoplay:{delay:3000,},
-           loop:true,
-           speed:1000,
-           paginationClickable:true,
-           pagination: {
-               el: '.swiper-pagination',
-               clickable: true,
-           },
-           navigation: {
-               nextEl: '.swiper-button-next',
-               prevEl: '.swiper-button-prev'
-          }
-        }
-      }
-    }
-  }
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from "swiper/vue";
+
+// Import Swiper styles
+import "swiper/css";
+
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+// import required modules
+import { Pagination, Navigation} from "swiper";
+
+export default {
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
+  setup() {
+    return {
+      modules: [Pagination, Navigation],
+      swiperList:[
+           {id:0,imgUrl:'./images/recommend.jpeg'},
+           {id:1,imgUrl:'./images/recommend2.jpeg'},
+           {id:2,imgUrl:'./images/recommend3.jpeg'},
+           {id:3,imgUrl:'./images/recommend4.jpeg'}           
+         ]
+    };
+  },
+};
 </script>
 <style scoped>
  .swiper {

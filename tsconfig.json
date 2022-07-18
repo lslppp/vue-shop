@@ -2,9 +2,9 @@
   "extends": "@vue/tsconfig/tsconfig.web.json",
   "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["src/*"]
     }
   },
 
@@ -14,3 +14,25 @@
     }
   ]
 }
+
+
+
+// {
+//   "compilerOptions": {
+//     "target": "es5",
+//     "module": "esnext",
+//     "baseUrl": "./",
+//     "moduleResolution": "node",
+//     "paths": {
+//       "@/*": [
+//         "src/*"
+//       ]
+//     },
+//     "lib": [
+//       "esnext",
+//       "dom",
+//       "dom.iterable",
+//       "scripthost"
+//     ]
+//   }
+// }

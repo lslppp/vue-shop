@@ -28,16 +28,16 @@
 		flex-direction: row;
 		justify-content: space-around;
 		align-items: center;
-		background-color: #fa9506;
+		background-color: #409EFF;
 		width: 100% ;
-		height: 1.5rem;
+		height: 1rem;
 	}
 	header h1{
-		width: 1.5rem;
-		height: 1.5rem;
-		font-size: 0.33rem;
-	    color: #d81e06;
-	    margin-left: 0.05rem;
+		width: 1rem;
+		height: 1rem;
+		font-size: 0.23rem;
+	    color: #fff;
+	    margin-left: 0.25rem;
 	}
 	header h1 img{
 	  width: 65%;
@@ -49,22 +49,25 @@
 		flex-direction: row;
 		align-items: center;
 		width: 4.7rem;
-		height: 0.9rem;
+		height: 0.65rem;
 		background-color: #fff;
-		border-radius: 0.5rem;
+		border-radius: 0.4rem;
 	}
 	.search i{
 		padding: 0 0.15rem;
 		color: #ccc;
-		font-size: 0.3rem;
+		font-size: 0.25rem;
 	}
 	.search span{
 		color: #ccc;
-		font-size: 0.25rem;
+		font-size: 0.2rem;
+	}
+	.kefu{
+		margin-top: -0.3rem;
 	}
 	.kefu i{
-		font-size: 0.75rem;
+		font-size: 0.6rem;
 		color: #fff;
-	}
+		}
 	
 </style>
