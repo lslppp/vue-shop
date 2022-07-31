@@ -7,7 +7,7 @@
         </div>
         <div class="login-code">
           <input type="text" placeholder="请输入短信验证码" pattern="[0-9]*">
-          <button 
+          <button class="sendcode" 
             @click ="sendCode"
             :disabled = 'disabled'
           >{{codeMsg}}</button>
@@ -25,7 +25,8 @@
   import Tabbar from '@/components/common/Tabbar.vue'
   import  Header from './Header.vue'
   //import {Toast} from 'mint-ui'
-  // import http from '@/common/api/request.js'
+  import { ElMessage } from 'element-plus'
+  import http from '@/common/api/http.js'
 
     export default{
       data(){
@@ -52,17 +53,6 @@
       sendCode(){
         // 验证
         if(!this.validate('userTel')) return;
-        // //请求短信验证码接口
-       //    http.$axios({
-        //  url:'/api/code',
-        //  method:'post',
-        //  data:{
-        //    phone:this.userTel
-        //  }
-        // }).then(res => {
-        // console.log(res);
-
-        // })
 
         //禁用按钮
         this.disabled = true;
@@ -78,6 +68,18 @@
           this.disabled = false;
           this.codeMsg = "获取短信验证码"
         },6000)
+
+       //请求短信验证码接口
+        http.axios({
+         url:'/api/code',
+         method:'post',
+         data:{
+           phone:this.userTel
+         }
+        }).then(res => {
+        console.log(res);
+
+        })
   
       },
       goUserLogin(){
@@ -86,18 +88,14 @@
       validate(key){
         let bool = true;
         if(!this.rules[key].rule.test(this[key])){
-          Toast(this.rules[key].msg);
+          ElMessage(this.rules[key].msg);
           bool = false;
           return false;
         }
         return bool;
       }
-
-
-
-
     }
-     }
+  }
 </script>
 <style scoped>
   section{
@@ -153,6 +151,9 @@
   .tab{
     display: flex;
     justify-content: space-between;
+    font-size: 0.26rem;
+  }
+  .sendcode{
     font-size: 0.26rem;
   }
 </style>

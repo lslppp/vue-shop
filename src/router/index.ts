@@ -20,59 +20,60 @@ const router = createRouter({
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/List.vue"),
+      import(/* webpackChunkName: "list" */ "../views/List.vue"),
   },
    {
     path: "/cart",
     name: "Cart",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Cart.vue"),
+      import(/* webpackChunkName: "cart" */ "../views/Cart.vue"),
   },
    {
     path: "/my",
     name: "My",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/My.vue"),
+      import(/* webpackChunkName: "my" */ "../views/My.vue"),
   },
   {
     path: "/search",
-    // name: "Search",
+    name: "Search",
     children:[
       {
-        path:"/",
+        path:"",
         name:"index",
         component:() =>
-          import("../views/search/Search-index.vue"),
+          import(/* webpackChunkName: "search-index" */"../views/search/Search-index.vue"),
       },
       {
         path:"list",
         name:"list",
         component:() =>
-           import("../views/search/Search-list.vue")
+           import(/* webpackChunkName: "search-list" */"../views/search/Search-list.vue")
       }
     ],
     component: () =>
-      import("../views/Search.vue"),
+      import(/* webpackChunkName: "search" */"../views/Search.vue")
   },
    {
     path: "/detail",
     name: "Detail",
     component: () =>
-      import("../views/Detail.vue"),
+      import(/* webpackChunkName: "detail" */"../views/Detail.vue"),
   },
    {
     path: "/login",
     name: "Login",
     component: () =>
-      import("../views/login/Login.vue"),
+      import(/* webpackChunkName: "login" */"../views/login/Login.vue"),
   },
      {
     path: "/userLogin",
     name: "UserLogin",
     component: () =>
-      import("../views/login/UserLogin.vue"),
+      import(/* webpackChunkName: "userlogin" */"../views/login/UserLogin.vue"),
   }
   ],
 });
 
 export default router;
+// module.exports = router;

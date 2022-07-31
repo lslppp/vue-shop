@@ -161,7 +161,7 @@
         async getData(){
           let id = this.$route.query.id;
           
-          let res = await http.$axios({
+          let res = await http.axios({
             url:'/api/goods/id',
             params:{
               id

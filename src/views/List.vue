@@ -58,7 +58,7 @@
 </template>
 <script>
   
-  import Tabbar from '@/components/common/Tabbar.vue'
+   import Tabbar from '@/components/common/Tabbar.vue'
    import http from '@/common/api/http.js'
    import BScroll from 'better-scroll'
    // import axios from 'axios'
@@ -86,7 +86,7 @@
       Tabbar
     },
     async created(){
-      let res = await http.$axios({
+      let res = await http.axios({
         url:'/api/goods/list',
       });
       let leftArrar = [];

@@ -3,7 +3,7 @@ import { RouterLink, RouterView } from "vue-router";
 </script>
 
 <template>
-  <header>
+<!--   <header>
     <div>
 
       <nav>
@@ -11,9 +11,9 @@ import { RouterLink, RouterView } from "vue-router";
         <RouterLink to="/list">List</RouterLink>
       </nav>
     </div>
-  </header>
+  </header> -->
 
-  <RouterView />
+  <RouterView/>
 </template>
 <style>
 @import "@/assets/base.css";

@@ -2,17 +2,17 @@
   <main class="home">
       <div class="Headers">
         <div class="headers-main">
-          <Header v-if = 'true'></Header>
-          <Lytab v-if = 'true'></Lytab> 
+          <Header></Header>
+          <Lytab @select="changeTab"></Lytab> 
         </div>  
       </div>  
-      <section class="wrapper">
+      <section class="wrapper" ref="wrapper" v-show='true'>
         <div>
-          <Swiper></Swiper>
           <div 
           v-for = '(item,index) in newData'
           :key = 'index'
-           >
+           > 
+             <Swiper v-if ='item.type=="swiperList"'></Swiper>
              <Icons 
                 v-if ='item.type=="iconsList"'
                 :iconsList ='item.data'
@@ -30,7 +30,7 @@
                 :adList = 'item.data'
              ></Ad>
         </div>       
-      </div>
+       </div>
     </section>
  
     <Tabbar/>
@@ -45,11 +45,12 @@
   import Icons from '@/components/homeview/Icons.vue'
   import Like from '@/components/homeview/Like.vue'
   import Ad from '@/components/homeview/Ad.vue'
-  import BScroll from 'better-scroll'
-  import BSC from '@better-scroll/core'
   import http from '@/common/api/http.js'
+  import BScroll from 'better-scroll'
 
 
+ // let wrapper = document.querySelector('.wrapper')
+  // let scroll = new BScroll(this.$refs.wrapper, {});
   export default {
     name: "HomeView",
     data(){
@@ -73,6 +74,11 @@
     created(){
     this.getData();
   },
+  // mounted() {
+  //     this.$nextTick(() => {
+  //       this.scroll = new Bscroll(this.$refs.wrapper, {})
+  //     })
+  //   },
   methods:{
 
   async getData(){
@@ -80,43 +86,64 @@
          url:'/api/index/0/data/1'
         });
     this.newData = Object.freeze(res.data);
-    console.log(this.newData);
+    console.log(res);
     this.$nextTick(()=>{
-       this.getBscroll=new BScroll('.wrapper', {
-         // pullUpLoad: true,
-         // scrollbar: true,
-         // pullDownRefresh: true
-         movable:true,
-         zoom:true,
-         click:true
+       // this.getBscroll=new BScroll('.wrapper', {
+       //   // pullUpLoad: true,
+       //   scrollbar: true,
+       //   // pullDownRefresh: true
+       //   movable:true,
+       //   zoom:true,
+       //   click:true
+       // });
+       // this.getBscroll = new BSC('.wrapper',{});
+       // let wrapper = document.querySelector('.wrapper');
+      new BScroll(this.$refs.wrapper, {
+                pullUpLoad: true,
+                scrollbar: true,
+                pullDownRefresh: true
        });
-       this.getBscroll = new BSC('.wrapper',{});
+       // this.scroll = new BScroll(this.$refs.wrapper, {});
     });
   },
   async addData(value){
+     console.log('LyTab change:', value);
+     // console.log('LyTab change:');
       let res = await http.axios({
         url:'/api/index/'+value+'/data/1'
       });
       if (res.constructor !=Array) {
         this.newData = res.data;
-       
       }
       else{
         this.newData = res;
+
       }
      // console.log('change:',this.newData);
       this.$nextTick(()=>{
-        this.getBscroll=new BScroll('.wrapper', {
-           pullUpLoad: true,
-           scrollbar: true,
-           pullDownRefresh: true
-   })
+        
+        // this.getBscroll=new BScroll('.wrapper', {
+        //    pullUpLoad: true,
+        //    scrollbar: true,
+        //    pullDownRefresh: true
+        //  })
+
+        // let wrapper = document.querySelector('.wrapper');
+        new BScroll(this.$refs.wrapper, {
+                pullUpLoad: true,
+                scrollbar: true,
+                pullDownRefresh: true,
+                zoom:true
+        });
+        // this.scroll = new BScroll(this.$refs.wrapper, {});
     });
 
     },
    changeTab(value){
+   
+    // console.log('LyTab change:');
       this.addData(value);
-     // console.log('LyTab change:', value);
+     
     }
   }
 };
@@ -140,7 +167,7 @@
    height: 1rem;
   }
   .wrapper{
-    margin-top: 1rem;
+    margin-top: 2rem;
     height: 1rem;
     flex: 1;
     overflow: hidden;

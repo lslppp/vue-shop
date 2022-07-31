@@ -22,7 +22,8 @@
   import Tabbar from '@/components/common/Tabbar.vue'
   import  Header from './Header.vue'
   //import {Toast} from 'mint-ui'
-  //import http from '@/common/api/request.js'
+  import http from '@/common/api/http.js'
+  import { ElMessage } from 'element-plus'
     export default{
       data(){
         return{
@@ -51,7 +52,7 @@
       login(){
         if(!this.validate('userTel')) return;
         if(!this.validate('userPwd')) return;
-        http.$axios({
+        http.axios({
           url:'/api/login',
           method:'post',
           data:{
@@ -60,11 +61,15 @@
           }
         }).then(res => {
           //提示信息
-          Toast(res.msg);
+          ElMessage(res.msg);
           //登录失败
           if (!res.success) return;
           //登录成功后跳转页面
+          else{
+             this.$router.push('/HomeView');
+          }
 
+          console.log(res);
 
         })
 
@@ -75,7 +80,7 @@
       validate(key){
         let bool = true;
         if(!this.rules[key].rule.test(this[key])){
-          Toast(this.rules[key].msg);
+         ElMessage(this.rules[key].msg);
           bool = false;
           return false;
         }
